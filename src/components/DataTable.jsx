@@ -84,7 +84,7 @@ export default function MovieDataTable({ data = [], loading = false, error = nul
         columns={columns}
         data={filteredData || []}
         pagination
-        paginationPerPage={10} // Show 30 rows per page
+        paginationPerPage={10}
         highlightOnHover
         striped
         responsive

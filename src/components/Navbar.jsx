@@ -9,8 +9,9 @@ export default function Navbar() {
 
   const isMoviesActive = location.pathname.startsWith("/movies");
   const isTvActive = location.pathname.startsWith("/tv");
+  const isAdminActive = location.pathname.startsWith("/admin"); // Admin active check
 
-  // Handle submit
+  // Handle search submit
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -22,18 +23,14 @@ export default function Navbar() {
   return (
     <nav className="bg-[#092C4C] border-gray-200">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        {/* Brand + Search */}
         <div className="flex items-center space-x-6">
           <NavLink to={"/"}>
             <span className="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">
               Movies
             </span>
           </NavLink>
-          <form
-            onSubmit={handleSearch}
-            className="relative hidden md:block w-64"
-          >
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-            </div>
+          <form onSubmit={handleSearch} className="relative hidden md:block w-64">
             <input
               type="text"
               value={searchQuery}
@@ -48,10 +45,9 @@ export default function Navbar() {
             />
           </form>
         </div>
-        <div
-          className="items-center justify-between hidden md:flex md:w-auto md:order-1"
-          id="navbar-search"
-        >
+
+        {/* Nav Links */}
+        <div className="items-center justify-between hidden md:flex md:w-auto md:order-1">
           <ul className="flex flex-row space-x-8 font-medium">
             <NavLink
               to={"/"}
@@ -64,28 +60,38 @@ export default function Navbar() {
               Home
             </NavLink>
 
-            <li>
-              <NavLink
-                to={"/movies/popular"}
-                className={
-                  isMoviesActive
-                    ? "block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-red-500"
-                    : "block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
-                }
-              >
-                Movies
-              </NavLink>
-            </li>
+            <NavLink
+              to={"/movies/popular"}
+              className={({ isActive }) =>
+                isMoviesActive
+                  ? "block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-red-500"
+                  : "block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+              }
+            >
+              Movies
+            </NavLink>
 
             <NavLink
               to={"/tv/popular"}
-              className={
+              className={({ isActive }) =>
                 isTvActive
                   ? "block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-red-500"
                   : "block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
               }
             >
               TV Series
+            </NavLink>
+
+            {/* Admin Link */}
+            <NavLink
+              to={"/admin"}
+              className={({ isActive }) =>
+                isAdminActive
+                  ? "block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-red-500"
+                  : "block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-red-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+              }
+            >
+              Admin
             </NavLink>
           </ul>
         </div>

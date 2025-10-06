@@ -21,7 +21,6 @@ export default function Pagination({ totalPages, currentPage, onPageChange }) {
   return (
     <nav aria-label="Page navigation example" className="flex justify-center mt-6 ">
       <ul className="flex items-center -space-x-px h-8 text-sm ">
-
         {/* Prev Button */}
         <li>
           <button

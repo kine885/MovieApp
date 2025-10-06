@@ -20,12 +20,10 @@ export function AdminLayout() {
     <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
       <LeftSidebar />
-
       {/* Main content */}
       <div className="flex-1 flex flex-col">
         {/* Navbar */}
         <AdminNavbar />
-
         {/* Page content */}
         <div className="p-6 flex-1">
           <Outlet />

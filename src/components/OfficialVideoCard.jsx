@@ -3,12 +3,9 @@ export default function OfficialVideoCard({ video }) {
   const videoUrl = video.site === "YouTube"
     ? `https://www.youtube.com/watch?v=${video.key}`
     : "#";
-
-  // You can use YouTube thumbnails
   const thumbnailUrl = video.site === "YouTube"
     ? `https://img.youtube.com/vi/${video.key}/hqdefault.jpg`
     : "";
-
   return (
     <div className="max-w-sm bg-white rounded-lg shadow-sm dark:bg-gray-800 overflow-hidden">
       {/* Thumbnail */}

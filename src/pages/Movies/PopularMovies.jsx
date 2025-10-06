@@ -39,7 +39,6 @@ export default function PopularMovies() {
     { id: 10749, name: "Romance" },
   ];
 
-  // Fetch movies whenever page, genre, or sort changes
   useEffect(() => {
     dispatch(fetchPopularMovies({
       page: popularPage,
@@ -52,21 +51,16 @@ export default function PopularMovies() {
     <div className="bg-[#1F2A37] min-h-screen">
       <div className="pt-20 container mx-auto px-4">
         <h2 className="text-4xl font-bold text-white px-4">Popular Movies</h2>
-
-        {/* Buttons + Dropdowns on same row */}
         <div className="flex items-center gap-4 mb-6">
-          {/* Buttons (left side) */}
           <div className="flex gap-4 flex-wrap ">
             <MovieNavButtons />
           </div>
-          {/* Dropdowns (right side) */}
           <div className="ml-auto flex gap-4">
             <Dropdown
               genres={genreOptions}
               selectedGenre={selectedGenre}
               onGenreChange={(g) => { setSelectedGenre(g); dispatch(setPopularPage(1)); }}
             />
-
             <Dropdown
               sortOptions={sortOptions}
               selectedSort={selectedSort}
@@ -74,8 +68,7 @@ export default function PopularMovies() {
             />
           </div>
         </div>
-
-        {/* Movies Grid */}
+        {/* Movies */}
         <section className="grid grid-cols-6 gap-5">
           {popularLoading ? (
             <CardLoading count={24} />
@@ -83,7 +76,6 @@ export default function PopularMovies() {
             popular?.slice(0, 20).map(movie => <Card key={movie.id} data={movie} />)
           )}
         </section>
-
         {/* Pagination */}
         <div className="mt-6">
           <Pagination

@@ -8,7 +8,6 @@ const inactiveClass =
   "py-1 px-3 text-lg font-medium rounded-lg border focus:outline-none focus:ring-4 bg-white text-gray-900 border-blue-700 hover:bg-gray-100 hover:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-blue-600 dark:hover:text-white dark:hover:bg-gray-700";
 
 export default function NavButtons({ type = "movie" }) {
-  // Define buttons based on type
   const buttons =
     type === "movie"
       ? [

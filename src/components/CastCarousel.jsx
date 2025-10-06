@@ -31,14 +31,12 @@ export default function CastCarousel({ cast, nextClass, prevClass }) {
           </SwiperSlide>
         ))}
       </Swiper>
-
       {/* Prev Button */}
       <button className={`${prevClass} custom-prev absolute top-1/3 -left-0 transform -translate-y-1/2 w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-500 z-10 shadow-md`}>
         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
-
       {/* Next Button */}
       <button className={`${nextClass} custom-next absolute top-1/3 -right-0 transform -translate-y-1/2 w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-500 z-10 shadow-md`}>
         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

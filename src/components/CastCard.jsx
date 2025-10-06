@@ -17,7 +17,6 @@ export default function CastCard({ actor, type = "movie" }) {
           </div>
         )}
       </div>
-
       {/* Text Section */}
       <div className="p-5">
         <h5 className="mb-2 font-inter font-bold text-[16px] tracking-tight text-black truncate">
