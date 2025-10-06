@@ -5,7 +5,7 @@ import CardCarousel from "./components/CardCarousel";
 import {fetchTrendingMovies, fetchPopularMovies, fetchTopRatedMovies,} from "./redux/slices/moviesSlice";
 import "swiper/css";
 import "swiper/css/navigation";
-import HeroLoading from "./components/Loading/heroLoading";
+import HeroLoading from "./components/Loading/HeroLoading";
 import CardCarouselLoading from "./components/Loading/CardCarouselLoading";
 import MovieNavButtons from "./components/MoviesBtn";
 import CastCard from "./components/CastCard";
